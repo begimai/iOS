@@ -1,0 +1,19 @@
+//  IntToDate.swift
+//  temp
+//
+//  Created by Begimai Amantaeva on 2/6/17.
+//  Copyright © 2017 Begimai Amantaeva. All rights reserved.
+//
+import Foundation
+
+extension Date {
+    func intToDate(aDate: Int) -> Date {
+        let date = NSDate(timeIntervalSince1970: TimeInterval(aDate))
+        let dtf = DateFormatter()
+        let localTimeZoneName: String = TimeZone.current.identifier
+        dtf.timeZone = NSTimeZone(name: localTimeZoneName) as TimeZone!
+        dtf.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let temp = dtf.string(from: date as Date)
+        return dtf.date(from: temp)!
+    }
+}
