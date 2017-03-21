@@ -1,0 +1,25 @@
+//  loadFromURL.swift
+//  temp
+//
+//  Created by Begimai Amantaeva on 3/16/17.
+//  Copyright © 2017 Begimai Amantaeva. All rights reserved.
+//
+import Foundation
+
+
+extension UIImageView {
+    func loadFromURL(photoUrl:String){
+        let url = NSURL(string: photoUrl)
+        let request = NSURLRequest(URL:url!)
+        let session = NSURLSession.sharedSession()
+        let datatask = session.dataTaskWithRequest(request) { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            dispatch_async(dispatch_get_main_queue()) {
+                self.image = UIImage(data: data!)
+            }
+        }
+        datatask.resume()
+    }
+}
