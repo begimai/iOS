@@ -1,0 +1,17 @@
+//  imageWithLabel.swift
+//  temp
+//
+//  Created by Begimai Amantaeva on 3/2/17.
+//  Copyright © 2017  Begimai Amantaeva. All rights reserved.
+//
+import Foundation
+
+extension UIImage {
+    class func imageWithLabel(label: UILabel) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0.0)
+        label.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
+}
