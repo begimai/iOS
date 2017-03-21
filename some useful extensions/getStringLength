@@ -1,0 +1,17 @@
+//  stringLength.swift
+//  temp
+//
+//  Created by Begimai Amantaeva on 3/6/17.
+//  Copyright © 2017 Begimai Amantaeva. All rights reserved.
+//
+import Foundation
+
+
+extension String
+{
+    var length: Int {
+        get {
+            return countElements(self)
+        }
+    }
+}    
